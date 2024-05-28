@@ -1,73 +1,294 @@
+/*  ======== Google Font Import  ========*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500&display=swap');
+
+/*Variables CSS*/
+:root {
+    --header-height:3.5rem;
+    /* ======== C O L O R S  ======== */
+    --white-color: hsl(0, 0%, 100%);
+    --black-color: hsl(0, 0%, 0%);
+
+    /*  ======== Font and Typography  ======== */
+    --body-font: 'Montserrat Alternates', sans-serif;
+    --h1-font-size: 1.5rem;
+    --normal-font-size: .938rem;
+
+    /*  ======== Font Weight  ======== */
+    --font-regular: 400;
+    --font-medium: 500;
+
+    /*  ======== Z Index  ======== */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/*  ======== RESPONSIVE TYPOGRAPHY  ======== */
+
+@media screen and (min-wifth: 1150px) {
+    :root {
+        --normal-font-size: 1rem;
+    }
+}
+
+/*  ======== BASE  ======== */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
 }
 
 body {
-    background-color: rgb(213, 191, 254);
-    margin: 0; 
-    padding: 0; 
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    /* background-color: rgb(213, 191, 254); */
 }
 
-/* Navigation Bar */
-.nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(196, 159, 249, 0.9);
-    position: fixed;
-    top: 2%;
-    left: 1%;
-    right: 2%;
-    width: 92%;
-    padding: 5px 65px 10px 23px;
-    border-radius: 23px;
-}
-
-.nav ul {
-    display: flex;
-    margin: 20px 0;
+ul {
     list-style: none;
 }
 
-.nav ul li {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.nav ul li a {
-    color: black;
-    padding: 9px 29px;
-    transition: all .3s ease-in;
+a {
     text-decoration: none;
 }
 
-.nav ul li a:hover {
-    background-color: rgba(82, 0, 126, 0.4);
-    color: black;
-    box-shadow: 0 0 10px white;
-    border-radius: 23px;
+/*  ======== REUSABLE CSS CLASSES  ======== */
+
+.container {
+    max-width: 1120px;
+    margin-inline: 1.5rem;
 }
 
-/* Main Content */
+/*  ======== HEADER & NAV  ======== */
+
+.header {
+    /* position: fixed; */
+    position: relative;
+    width: 1140px;
+    top: 0;
+    left: 0;
+    background-color: opacity 20%;
+    /* z-index: var(--z-fixed); */
+    align-items: center;
+    z-index: 100;
+    height: 50px;
+    max-width: 80%;
+}
+
+.nav {
+    position: relative;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo {
+    color: var(--white-color);
+    font-weight: var(--font-medium);
+}
+
+.nav__close,
+.nav__toggle{
+    display: flex;
+    color: var(--white-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Navigation for mobile devices*/
+
+@media screen and (max-width: 1150px) {
+    .nav__menu{
+        position: fixed;
+        left: -100;
+        top: 0;
+        background-color: var(--black-color);
+        width: 100%;
+        height: 100%;
+        padding: 6rem 3.5rem 4.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: left .4s;
+    }
+
+    .nav__item{
+        transform: translate(-150px);
+        visibility: hidden;
+        transition: transform .4s ease-out, visibility .4s;
+    }
+
+    .nav__item:nth-child(1){
+        transition-delay: .1s;
+    }
+    .nav__item:nth-child(2){
+        transition-delay: .2s;
+    }
+    .nav__item:nth-child(3){
+        transition-delay: .3s;
+    }
+    .nav__item:nth-child(4){
+        transition-delay: .4s;
+    }
+    .nav__item:nth-child(5){
+        transition-delay: .5s;
+    }
+    .nav__item:nth-child(6){
+        transition-delay: .6s;
+    }
+}
+
+.nav__list,
+.nav__social{
+    display: flex;
+}
+
+.nav__list{
+    flex-direction: column;
+    row-gap: 3rem;
+}
+
+.nav__link{
+    position: relative;
+    color: var(--white-color);
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-medium);
+    display: inline-flex;
+    align-items: center;
+    transform: opacity .4s;
+}
+
+.nav__link i{
+    font-size: 2rem;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .4s, visibility .4s;
+}
+
+.nav__link span::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background-color: var(--white-color);
+    transition: width .4s ease-out;
+}
+
+/* Animation link on hover */
+
+.nav__link:hover span{
+    margin-left: 2.5rem;
+}
+
+.nav__link:hover i{
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav__link:hover span::after {
+    width: 100%;
+}
+
+/* Sibling fade animation */
+
+.nav__list:has(.nav__link:hover) .nav__link:not(:hover){
+    opacity: .4;
+}
+
+.nav__close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+}
+
+.nav__social {
+    column-gap: 1rem;
+}
+
+.nav__social-link {
+    color: var(--white-color);
+    font-size: 1.5rem;
+    transition: transform .4s;
+}
+
+.nav__social-link:hover{
+    transform: translateY(-.25rem);
+}
+
+
+/* Show Menu */
+
+.show-menu{
+    left: 0;
+}
+
+/* Animation link when displaying menu */
+
+.show-menu .nav__item{
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* ======== BREAKPOINTS ======== */
+
+/* For large devices */
+
+@media screen and (min-width: 1150px){
+    .container{
+        margin-inline: auto;
+    }
+
+    .nav{
+        height: calc(var(--header-height) + 2rem);
+    }
+    .nav__toggle,
+    .nav__close{
+        display: none;
+    }
+    .nav__link{
+        font-size: var(--normal-font-size);
+    }
+    .nav__link i{
+        font-size: 1.5rem;
+    }
+    .nav__list{
+        flex-direction: row;
+        column-gap: 3.5rem;
+    }
+    .nav__menu{
+        display: flex;
+        align-items: center;
+        column-gap: 3.5rem;
+    }
+}
+
+/*  Main Content 
 h1 {
     text-align: center;
+    font-size: 60px;
     text-shadow: 0 0 13px rgb(193, 161, 253);
-    font-size: 110px;
-    margin-top: 100px; /* Adjusted for fixed nav */
+    margin-top: 100px; /* Adjusted for fixed nav 
 }
 
 main, p, .content a {
     margin: auto;
-    max-width: 60%;
+    max-width: 100%;
     text-decoration: none;
     color: black;
     line-height: 2;
     padding: 5% 8%;
 }
 
-/* Reviews Table */
+/* Reviews Table 
 .side2, .side1, .side3, .side4 {
     background-color: #cbb2fe;
     box-shadow: 0 0 14px rgb(134, 80, 234);
@@ -91,7 +312,7 @@ main, p, .content a {
     margin-left: 4%;
 }
 
-/* Footer */
+/* Footer 
 footer {
     width: 100vw;
     position: fixed;
@@ -113,4 +334,306 @@ footer small, footer a {
 footer a:hover {
     color: rgb(180, 99, 246);
     font-size: 18px;
+} */
+
+/* ====== CAROUSEL ======*/
+
+.header a{
+    margin-right: 40px;
+}
+
+.carousel {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin-top: -50px;
+    position: relative;
+}
+
+.carousel .list .item {
+    position: absolute;
+    inset: 0 0 0 0;
+}
+
+.carousel .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel .list .item .content {
+    position: absolute;
+    top: 20%;
+    width: 1140px;
+    max-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    color: #fff;
+    text-shadow: 0 5px 10px #0004;
+}
+
+.carousel .list .item .content .author {
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+
+.carousel .list .item .content .title,
+.carousel .list .item .content .topic{
+    font-weight: bold;
+    font-size: 5em;
+    line-height: 1.3em;
+}
+
+.carousel .list .item .content .topic {
+    color: rgb(178, 22, 43);
+}
+
+.carousel .list .item .content .buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.carousel .list .item .content button{
+    border: none;
+    background-color: #eee;
+    letter-spacing: 3px;
+    font-weight: 500;
+}
+
+.carousel .list .item .content button:nth-child(2){
+    background-color: transparent;
+    color:#eee;
+    border: 1px solid #eee;
+}
+
+/* ========== THUMBNAIL ========== */
+
+.thumbnail{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+
+.thumbnail .item{
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.thumbnail .item .content{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+
+.thumbnail .item .content .title{
+    font-weight: bold;
+}
+
+/* =========== ARROWS ========== */
+
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    font-family: monospace;
+    color: #fff;
+    font-weight: bold;
+    font-size: large;
+    transition: .5s;
+    z-index: 100;
+}
+
+.arrows button:hover{
+    background-color: #eee;
+    color: #555;
+}
+
+.carousel .list .item:nth-child(1){
+    z-index: 1;
+}
+
+.carousel .list .item:nth-child(1) .author,
+.carousel .list .item:nth-child(1) .title,
+.carousel .list .item:nth-child(1) .topic,
+.carousel .list .item:nth-child(1) .des,
+.carousel .list .item:nth-child(1) .buttons{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent 0.5s 1s linear 1 forwards;
+}
+
+@keyframes showContent{
+    to{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+.carousel .list .item:nth-child(1) .title{
+    animation-delay: 1.2s;
+}
+
+.carousel .list .item:nth-child(1) .topic{
+    animation-delay: 1.4s;
+}
+
+.carousel .list .item:nth-child(1) .des{
+    animation-delay: 1.6s;
+}
+
+.carousel .list .item:nth-child(1) .buttons{
+    animation-delay: 1.8s;
+}  
+
+/* ====== effect next click ===== */
+
+.carousel.next .list .item:nth-child(1) img{
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    border-radius: 20px;
+    animation: showImage 0.5s linear 1 forwards;
+}
+@keyframes showImage{
+    to{
+        width: 100%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        border-radius: 0;
+    }
+}
+
+.carousel.next .thumbnail .item:nth-child(1){
+    width: 0;
+    overflow: hidden;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+@keyframes showThumbnail{
+    to{
+        width: 150px;
+    }
+}
+
+.carousel.next .thumbnail{
+    transform: translateX(150px);
+    animation: transformThumbnail .5s linear 1 forwards;
+}
+@keyframes transformThumbnail{
+    to{
+        transform: translateX(0);
+    }
+}
+
+/* ====== effect prev click ====== */
+
+.carousel.prev .list .item:nth-child(2){
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: outImage 0.5s linear 1 forwards;
+}
+@keyframes outImage{
+    to{
+        width: 150px;
+        height: 220px;
+        border-radius: 20px;
+        left: 50%;
+        bottom: 50px;
+    }
+}
+
+.carousel.prev .thumbnail .item:nth-child(2){
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail 0.5s linear 1 forwards;
+}
+
+.carousel.prev .list .item:nth-child(2) .author,
+.carousel.prev .list .item:nth-child(2) .title,
+.carousel.prev .list .item:nth-child(2) .topic,
+.carousel.prev .list .item:nth-child(2) .des,
+.carousel.prev .list .item:nth-child(2) .buttons{
+    animation: contentOut 1.5s linear 1 forwards;
+}
+@keyframes contentOut{
+    to{
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+.carousel.next .arrows button,
+.carousel.prev .arrows button{
+    pointer-events: none;
+}
+
+/* ====== time ===== */
+
+.time{
+    width: 0%;
+    height: 5px;
+    background-color: red;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+}
+
+.carousel.next .time,
+.carousel.prev .time{
+    width: 100%;
+    animation: timeRunning 2s linear 1 forwards;
+}
+@keyframes timeRunning{
+    to{
+        width: 0;
+    }
+}
+
+@media screen and (max-width: 678px){
+    .carousel .list .item .content{
+        padding-right: 0;
+    }
+    .carousel .list .item .content .title{
+        font-size: 30px;
+    }
 }
