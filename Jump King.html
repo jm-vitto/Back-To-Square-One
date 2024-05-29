@@ -3,28 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jump King</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
     <link rel="stylesheet" href="Jump King.css">
+    <link rel="icon" type="image" href="media/back2square1icon.png">
+    <title>Back To Square One</title>
 </head>
-
 <body>
-    <nav class="nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Jump King.html">Jump King</a></li>
-            <li><a href="Getting Over It.html">Getting Over It</a></li>
-            <li><a href="A Difficult Game About Climbing.html">A Game About Climbing</a></li>
-            <li><a href="The Game of Sisyphus.html">The Game of Sisyphus</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
-        </ul>
-    </nav>
+    <!-- ======== ======== HEADER  ======== ========-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <i class="ri-skip-back-mini-line"></i>2<i class="ri-square-line"></i>1
+            </a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">
+                            <i class="ri-arrow-right-up-line"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="Jump King.html" class="nav__link">
+                            <i class="ri-arrow-right-up-line"></i>
+                            <span>Jump</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="Getting Over It.html" class="nav__link">
+                            <i class="ri-arrow-right-up-line"></i>
+                            <span>Pot & Hammer</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="A Difficult Game About Climbing.html" class="nav__link">
+                            <i class="ri-arrow-right-up-line"></i>
+                            <span>Climb</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="The Game of Sisyphus.html" class="nav__link">
+                            <i class="ri-arrow-right-up-line"></i>
+                            <span>Boulder</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="reviews.html" class="nav__link">
+                            <i class="ri-arrow-right-up-line"></i>
+                            <span>Reviews</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!--=====CLOSE BUTTON=====-->
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-large-line"></i>
+                </div>
+
+                <div class="nav__social">
+                    <a href="https://www.instagram.com" target="_blank" class="nav__social-link">
+                        <i class="ri-instagram-line"></i>
+                    </a>
+
+                    <a href="https://github.com" target="_blank" class="nav__social-link">
+                        <i class="ri-github-line"></i>
+                    </a>
+
+                    <a href="facebook.com" target="_blank" class="nav__social-link">
+                        <i class="ri-facebook-box-line"></i>
+                    </a>
+
+                    <a href="linkedin.com" target="_blank" class="nav__social-link">
+                        <i class="ri-linkedin-box-line"></i> 
+                    </a>
+                </div>
+            </div>
+
+            <!--===== Toggle Button =====-->
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+        
+    </header>
 
     <main>
         <h1>Jump <span style="color: rgb(139, 76, 242); -webkit-text-stroke: rgb(112, 68, 245);">King</span></h1>
         <section>
             <div class="video">
-                <video controls loop autoplay poster="video content/Jump King thumbnail.png">
-                    <source src="video content/Jump King Speedrun world record.mp4" type="video/mp4">
+                <video controls loop autoplay poster="media/Jump King thumbnail.png">
+                    <source src="media/Jump King Speedrun world record.mp4" type="video/mp4">
                 </video>
             </div>
             <h3>About the Game</h3>
@@ -34,7 +107,7 @@
             Jump King includes two free expansions - ”New Babe+” and ”Ghost of the Babe”!
             <br><br>
 
-            <img src="video content/jumpking-img1.jpg" alt="jumpking-img1" rel="" class="img1">
+            <img src="media/jumpking-img1.jpg" alt="jumpking-img1" rel="" class="img1">
 
             <span style="color: rgb(139, 76, 242);"><b> Gameplay:</b> </span><br>
             <b>-Prepare for true high-stakes platforming!</b><br>
@@ -116,5 +189,8 @@
         <small>Copyright &copy; 2024 |</small>
         <a href="https://www.speedrun.com" target="_blank">Visit speedrun.com</a>
     </footer>
+
+    <!--===== SCRIPT =====-->
+    <script src="nav.js"></script>
 </body>
 </html>

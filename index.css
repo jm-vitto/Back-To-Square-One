@@ -81,7 +81,7 @@ a {
 }
 
 .nav {
-    position: relative;
+    position: fixed;
     height: var(--header-height);
     display: flex;
     justify-content: space-between;
