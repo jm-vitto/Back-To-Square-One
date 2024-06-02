@@ -47,7 +47,16 @@ body {
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     background-color: rgb(213, 191, 254);
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
 
 ul {
     list-style: none;
@@ -329,13 +338,18 @@ section {
     text-align: justify;
 }
 
-.video {
-    padding: 10px;
-    height: 400px;
-    width: 740px;
-    border-radius: 20px;
-    box-shadow: 0 2px 7px rgb(185, 54, 241);
+.video-container {
+    position: relative;
+    width: 100%; /* Set the width of the container to 60% of the screen */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding around the container */
+    align-items: center;
+    display: block;
 }
+
+.info-list {
+    list-style: disc;
+  }
 
 .img1 {
     height: 250rem;

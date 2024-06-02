@@ -71,7 +71,7 @@ a {
     width: 100%;
     top: 0;
     left: 0;
-    background-color: var(--black-color);
+    background-color: purple;
     z-index: var(--z-fixed);
 }
 
@@ -319,8 +319,6 @@ footer a:hover {
     font-size: 18px;
 }
 
-
-
 section {
     background-color: #fff;
     padding: 20px;
@@ -329,10 +327,18 @@ section {
     text-align: justify;
 }
 
-.video {
-    padding: 10px;
-    height: 400px;
-    width: 740px;
+.video-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    align-content: center;
+    align-items: center;
+
+}
+
+
+.info-list {
+    list-style: disc;
 }
 
 .img1 {
