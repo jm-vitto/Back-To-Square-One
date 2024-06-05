@@ -350,8 +350,9 @@ section {
 }
 .video{
     float: right;
-    background-color: hsl(261, 97%, 77%);
     margin: 10px;
+    margin-top: 25px;
+    margin-right: 25px;
 }
 .speedrun-info {
     display: flex;
