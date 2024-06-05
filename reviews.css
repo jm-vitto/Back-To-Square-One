@@ -188,7 +188,7 @@ img {
     width: 100%;
     top: 0;
     left: 0;
-    background-color: var(--black-color);
+    background-color: hsl(0, 0%, 0%);
     z-index: var(--z-fixed);
     font-family: 'Montserrat Alternates', sans-serif;;
 }
@@ -275,6 +275,7 @@ img {
     display: inline-flex;
     align-items: center;
     transform: opacity .4s;
+    padding: 10px;
 }
 
 .nav__link i{

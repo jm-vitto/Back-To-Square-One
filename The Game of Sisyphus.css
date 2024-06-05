@@ -321,26 +321,6 @@ footer a:hover {
     color: rgb(180, 99, 246);
     font-size: 18px;
 }
-
-
-
-section {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    text-align: justify;
-}
-
-.video-container {
-    position: relative;
-    width: 100%; /* Set the width of the container to 60% of the screen */
-    margin: 0 auto; /* Center the container */
-    padding: 20px; /* Add padding around the container */
-    align-items: center;
-    display: block;
-}
-
 .info-list {
     list-style: disc;
   }
@@ -348,4 +328,46 @@ section {
 .img1 {
     height: 250rem;
     width: 550rem;
+}
+section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+.video-container {
+    display: flex;
+    background-color: white;
+    padding: 65px;
+    align-items: center;
+}
+.wr-article{
+    display: flex;
+    width: auto;
+    background-color: rgb(213, 191, 254);
+    border-radius: 8px;
+}
+.video{
+    float: right;
+    background-color: hsl(261, 97%, 77%);
+    margin: 10px;
+}
+.speedrun-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    align-content: center;
+}
+aside{
+    width: 500px;
+    float: left;
+    padding: 10px;
+}
+
+h4 {
+    color: #4a148c;
+    font-size: 36px;
+    margin-top: 0;
 }
